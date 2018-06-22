@@ -21,6 +21,8 @@
                         $("#myTimers").hide()
                     })
                     
+                    
+                    
                 })
                 
             </script>
@@ -95,15 +97,15 @@
             </div>
             <div id = "setTimer">
                 <div class = "border">
-                    <input id = "setTime" type = "text" value = "5 min"/>
+                    <input id = "setTime" type = "text" value = "5"/>
                 </div>
             </div>
             <div id = "shakeWord"></div>
             <ul class="previews">
-                <li><i class="preview-item shake"></i></li>
-                <li><i class="preview-item shake shake-slow"></i>
-                </li><li><i class="preview-item shake shake-little"></i></li>
-                <li><i class="preview-item shake shake-hard"></i></li>
+                <li><i class="preview-item shake" onclick = "getShake(1)"></i></li>
+                <li><i class="preview-item shake shake-slow" onclick = "getShake(2)"></i>
+                </li><li><i class="preview-item shake shake-little" onclick = "getShake(3)"></i></li>
+                <li><i class="preview-item shake shake-hard" onclick = "getShake(4)"></i></li>
             </ul>
             <div id = "soundWord"></div>
             <div class = "border audio">
@@ -126,7 +128,7 @@
             <div class = "border descr">
                     <input id = "descrInput" type = "text" value = ""/>
             </div>
-            <div id = "btnAdd"></div>
+            <div id = "btnAdd" onclick="add()"></div>
             <script>
                 $("#btnAdd").hover(function(){
                     $(this).css({cursor:"pointer"});
