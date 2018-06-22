@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <title></title>
+        <link href = "indexStyle.css" type="text/css" rel="stylesheet"/>
+        <script src = "jquery-3.2.1.min.js"></script>
+        <script src = "Timer.js"></script>
+        <script src = "timers.js"></script>
+    </head>
+    <body>
+        <script>
+            $(window).onload(setUp());
+        </script>
+        <div id = "main">
+            <div id = "welcome"></div>
+            <button class="btn-5" style = "top: 20px;">TIMERS</button>
+            <script>
+                $(".btn-5").click(function(){
+                    $('<div>').prependTo("#main").attr("id","myTimers").animate({opacity:"0.3"},500);
+                    
+                    $("#myTimers").click(function(){
+                        $("#myTimers").hide()
+                    })
+                    
+                })
+                
+            </script>
+            <a href = "#setIcon">
+                <div id = "ContinueArrow">
+                <div class = "left" id = "f"></div>
+                <div class = "left right" id = "s"></div>         
+                <div class = "left thin"></div>
+                <div class = "left right thin r"></div>
+                </div>
+            </a>
+            <script>
+                $( document ).ready(function() {
+                    
+                    var interval = setInterval(function(){
+                        $( "#f" ).fadeTo( "fast", 0.5 );
+                        $( "#s" ).fadeTo( "fast", 0.5 );
+                        $( "#f" ).fadeTo( "fast", 1 );
+                        $( "#s" ).fadeTo( "fast", 1 );
+                    }, 500);    
+                    
+                    $("#ContinueArrow").click(function(){
+                        clearInterval(interval);
+                        var top = $("#setIcon").offset().top;
+                        $("body,html").animate({scrollTop: top}, 1500);
+                    })         
+                });                
+            </script>
+            <div id = "setIcon"></div>
+            <div id = "qAdd">
+                <div id = "arrow">
+                    <div class = "left right w"></div>
+                    <div class = "left l w"></div>
+                </div>
+                <div id = "qWord"></div>
+            </div>
+            <script>
+                $("#arrow").click(function(){
+                    $("#qAdd").animate({
+                        height: "120px",
+                        marginTop: "465px"
+                    },1500);
+                    $("#qWord").animate({
+                        marginTop: "90px"
+                    },1500);
+                    $("#arrow").animate({
+                        marginTop: "80px"
+                    },1500);
+                    setTimeout(function(){
+                        $('<div>').prependTo('#qAdd').attr("id","selectS").addClass("choose");
+                        $('<div>').prependTo('#qAdd').attr("id","selectF").addClass("choose");
+                        $('<div>').prependTo('#qAdd').attr("id","imgChoose");
+                    },1500);
+                    
+                })               
+            </script>
+            <div id = "setTA">
+                <div id = "timer"></div>
+                <div id="alarm"></div>
+                <div id = "timerS"></div>
+                <div id = "alarmS"></div>
+                <script>
+                    $("#timer").hover(function(){
+                        $("#timerS").animate({opacity: "1"},100);
+                        $("#alarmS").animate({opacity: "0"},100)
+                    });
+                    $("#alarm").hover(function(){
+                        $("#timerS").animate({opacity: "0"},100);
+                        $("#alarmS").animate({opacity: "1"},100)
+                    });
+                </script>
+            </div>
+            <div id = "setTimer">
+                <div class = "border">
+                    <input id = "setTime" type = "text" value = "5 min"/>
+                </div>
+            </div>
+            <div id = "shakeWord"></div>
+            <ul class="previews">
+                <li><i class="preview-item shake"></i></li>
+                <li><i class="preview-item shake shake-slow"></i>
+                </li><li><i class="preview-item shake shake-little"></i></li>
+                <li><i class="preview-item shake shake-hard"></i></li>
+            </ul>
+            <div id = "soundWord"></div>
+            <div class = "border audio">
+                    <input id = "setaudio" type = "text" value = ""/>
+            </div>
+            <div id = "connect"></div>
+            <div id = "checkbox">
+                <label class="container">
+                    <img src = "img/yes.jpg"/>
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    <img src = "img/no.jpg"/>
+                    <input type="radio" checked="checked" name="radio">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div id = "descrWord"></div>
+            <div class = "border descr">
+                    <input id = "descrInput" type = "text" value = ""/>
+            </div>
+            <div id = "btnAdd"></div>
+            <script>
+                $("#btnAdd").hover(function(){
+                    $(this).css({cursor:"pointer"});
+                })
+            </script>
+            <div id = "btnStart"></div>
+            <script>
+                $("#btnStart").hover(function(){
+                    $(this).css({cursor:"pointer"});
+                })
+            </script>
+        </div>
+    </body>
+</html>
